@@ -1,0 +1,65 @@
+{
+  "name": "dsh-activity-view",
+  "version": "0.1.0",
+  "description": "Activity view for the DSH web sidebar: a bell in the sessions header swaps the list for Needs attention, Working and Today.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./client/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "client",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "engines": {
+      "dsh": ">=0.2.0-rc.2"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "test": "node test/client.test.mjs",
+    "check": "npm run typecheck && npm test"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "sidebar",
+    "activity"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "typescript": "^5.9.3"
+  },
+  "author": "vec715",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vec715/dsh-activity-view.git"
+  },
+  "homepage": "https://github.com/vec715/dsh-activity-view#readme",
+  "bugs": {
+    "url": "https://github.com/vec715/dsh-activity-view/issues"
+  }
+}
